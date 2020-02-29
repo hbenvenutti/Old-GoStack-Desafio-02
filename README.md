@@ -1,2 +1,3 @@
-# GoStack-Desafio02
-First part of the final challenge.
+# FastFeet: GoStack - Desafio 02
+Backend part of the final challenge.
+
