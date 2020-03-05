@@ -9,6 +9,33 @@ class RecipientController {
     return res.json(recipients);
   }
 
+  async update(req, res) {
+    const schema = Yup.object().shape({
+      id: Yup.number(),
+      name: Yup.string(),
+      street: Yup.string(),
+      number: Yup.string(),
+      complement: Yup.string(),
+      state: Yup.string(),
+      city: Yup.string(),
+      cep: Yup.string(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation Failed' });
+    }
+    const { id } = req.body;
+    const recipient = await Recipient.findByPk(id);
+
+    if (!recipient) {
+      return res.status(404).json({ error: 'Recipient does not exists' });
+    }
+
+    recipient.update(req.body);
+
+    return res.json(recipient);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
