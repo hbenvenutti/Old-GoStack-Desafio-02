@@ -17,4 +17,4 @@ class Recipient extends Model {
   }
 }
 
-export default new Recipient();
+export default Recipient;
