@@ -23,6 +23,6 @@ routes.use(authAdmin);
 routes.delete('/users');
 routes.post('/recipients', RecipientController.store);
 routes.put('/recipients');
-routes.delete('/recipients');
+routes.delete('/recipients', RecipientController.delete);
 
 export default routes;
