@@ -90,8 +90,24 @@ class UserController {
   }
 
   async delete(req, res) {
-    // temp
-    return res.json({ message: 'Delete route' });
+    const schema = Yup.object().shape({
+      id: Yup.number().required(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation Failed' });
+    }
+
+    const { id } = req.body;
+
+    const user = await User.findByPk(id);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User does not exists' });
+    }
+
+    user.destroy();
+    return res.json(user);
   }
 }
 

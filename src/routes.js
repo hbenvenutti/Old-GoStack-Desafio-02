@@ -20,7 +20,7 @@ routes.put('/users', UserController.update);
 
 routes.use(authAdmin);
 
-routes.delete('/users');
+routes.delete('/users', UserController.delete);
 routes.post('/recipients', RecipientController.store);
 routes.put('/recipients', RecipientController.update);
 routes.delete('/recipients', RecipientController.delete);
