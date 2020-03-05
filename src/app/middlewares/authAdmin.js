@@ -7,5 +7,5 @@ export default async (req, res, next) => {
     return res.status(400).json({ error: 'You are not Admnistrator' });
   }
 
-  return res.json({ message: 'cheguei' });
+  return next();
 };
