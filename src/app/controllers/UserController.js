@@ -39,7 +39,10 @@ class UserController {
     });
   }
 
-  async show(req, res) {}
+  async show(req, res) {
+    // temp
+    return res.json({ message: 'Show route' });
+  }
 
   async update(req, res) {
     const schema = Yup.object().shape({
@@ -86,7 +89,10 @@ class UserController {
     });
   }
 
-  async delete(req, res) {}
+  async delete(req, res) {
+    // temp
+    return res.json({ message: 'Delete route' });
+  }
 }
 
 export default new UserController();
